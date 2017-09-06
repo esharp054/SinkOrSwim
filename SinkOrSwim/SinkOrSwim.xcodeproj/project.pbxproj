@@ -11,11 +11,12 @@
 		5239E4301F5E325500C0D59E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E42F1F5E325500C0D59E /* AppDelegate.m */; };
 		5239E4331F5E325500C0D59E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E4321F5E325500C0D59E /* ViewController.m */; };
 		5239E4361F5E325500C0D59E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5239E4341F5E325500C0D59E /* Main.storyboard */; };
-		5239E4381F5E325500C0D59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5239E4371F5E325500C0D59E /* Assets.xcassets */; };
+		5239E4381F5E325500C0D59E /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5239E4371F5E325500C0D59E /* images.xcassets */; };
 		5239E43B1F5E325500C0D59E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5239E4391F5E325500C0D59E /* LaunchScreen.storyboard */; };
 		5239E4461F5E325500C0D59E /* SinkOrSwimTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E4451F5E325500C0D59E /* SinkOrSwimTests.m */; };
 		5239E4511F5E325500C0D59E /* SinkOrSwimUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E4501F5E325500C0D59E /* SinkOrSwimUITests.m */; };
 		5239E4601F5E441900C0D59E /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E45F1F5E441900C0D59E /* ImageModel.m */; };
+		5264916A1F606A770058542F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526491691F606A770058542F /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +44,7 @@
 		5239E4311F5E325500C0D59E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5239E4321F5E325500C0D59E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5239E4351F5E325500C0D59E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5239E4371F5E325500C0D59E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5239E4371F5E325500C0D59E /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		5239E43A1F5E325500C0D59E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5239E43C1F5E325500C0D59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5239E4411F5E325500C0D59E /* SinkOrSwimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinkOrSwimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +55,8 @@
 		5239E4521F5E325500C0D59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5239E45E1F5E441900C0D59E /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
 		5239E45F1F5E441900C0D59E /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		526491681F606A770058542F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		526491691F606A770058542F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +114,9 @@
 				5239E4311F5E325500C0D59E /* ViewController.h */,
 				5239E4321F5E325500C0D59E /* ViewController.m */,
 				5239E4341F5E325500C0D59E /* Main.storyboard */,
-				5239E4371F5E325500C0D59E /* Assets.xcassets */,
+				526491681F606A770058542F /* TableViewController.h */,
+				526491691F606A770058542F /* TableViewController.m */,
+				5239E4371F5E325500C0D59E /* images.xcassets */,
 				5239E4391F5E325500C0D59E /* LaunchScreen.storyboard */,
 				5239E43C1F5E325500C0D59E /* Info.plist */,
 				5239E42B1F5E325500C0D59E /* Supporting Files */,
@@ -252,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5239E43B1F5E325500C0D59E /* LaunchScreen.storyboard in Resources */,
-				5239E4381F5E325500C0D59E /* Assets.xcassets in Resources */,
+				5239E4381F5E325500C0D59E /* images.xcassets in Resources */,
 				5239E4361F5E325500C0D59E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +286,7 @@
 				5239E4331F5E325500C0D59E /* ViewController.m in Sources */,
 				5239E4301F5E325500C0D59E /* AppDelegate.m in Sources */,
 				5239E42D1F5E325500C0D59E /* main.m in Sources */,
+				5264916A1F606A770058542F /* TableViewController.m in Sources */,
 				5239E4601F5E441900C0D59E /* ImageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ImageModel : NSObject
 
-@property(strong, nonatomic) NSArray * imageNames; 
+@property(strong, nonatomic) NSArray * imageNames;
+//@property(strong, nonatomic) NSDictionary * imgurPull;
 
 +(ImageModel*) sharedInstance;
+
+-(UIImage*)getImageWithName:(NSString *)name;
 
 @end

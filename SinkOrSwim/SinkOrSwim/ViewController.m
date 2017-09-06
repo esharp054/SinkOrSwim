@@ -9,25 +9,54 @@
 #import "ViewController.h"
 #import "ImageModel.h"
 
-@interface ViewController () <NSURLSessionTaskDelegate>
+@interface ViewController () <NSURLSessionTaskDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *viewMain;
 @property (strong, nonatomic) NSURLSession *session;
+
 
 //client ID: 77b0c801d1a25b7
 //client secret: 997e2ccfb98ba9a02baebc9abdfd8f55de86c4b8
 
+@property (strong,nonatomic) ImageModel* myImageModel;
+@property (strong, nonatomic) UIImageView* imageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation ViewController
+@synthesize myImageModel = _myImageModel;
 
+-(ImageModel*) myImageModel{
+    
+    if(!_myImageModel){
+        _myImageModel = [ImageModel sharedInstance];
+    }
+    return _myImageModel;
+}
 
+-(NSString*) imageName {
+    
+    if(!_imageName){
+        _imageName = @"Eric1";
+    }
+    
+    return _imageName;
+}
+
+-(UIImageView*) imageView{
+    
+    if(!_imageView){
+        _imageView = [[UIImageView alloc] initWithImage: [[ImageModel sharedInstance] getImageWithName:self.imageName]];
+    }
+    
+    return _imageView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    ImageModel* myImageModel = [ImageModel sharedInstance];
+
+    // Session stuff to pull from Imgur
     NSURLSessionConfiguration *sessionConfig =
     [NSURLSessionConfiguration ephemeralSessionConfiguration];
     
@@ -39,7 +68,16 @@
     [NSURLSession sessionWithConfiguration:sessionConfig
                                   delegate:self
                              delegateQueue:nil];
-    NSLog(@"%@", myImageModel.imageNames);
+    
+    [self.scrollView addSubview:self.imageView];
+    self.scrollView.contentSize = self.imageView.image.size;
+    self.scrollView.minimumZoomScale = 0.1;
+    self.scrollView.delegate = self;
+    
+}
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.imageView;
 }
 
 -(IBAction)getGallery: (id) sender{
@@ -64,6 +102,7 @@
          if(!error){
              NSLog(@"%@",response);
              NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
+//             [self.myImageModel setImgurPull:responseData];
              for(NSString *key in responseData) {
                  NSLog(@"%@",[responseData objectForKey:key]);
              }
@@ -75,12 +114,6 @@
         }
     ];
     [dataTask resume];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
