@@ -11,6 +11,8 @@
 @interface ViewController () <NSURLSessionTaskDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *viewMain;
 @property (strong, nonatomic) NSURLSession *session;
+@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSMutableDictionary *albums;
 
 //client ID: 77b0c801d1a25b7
 //client secret: 997e2ccfb98ba9a02baebc9abdfd8f55de86c4b8
@@ -19,7 +21,24 @@
 @end
 
 @implementation ViewController
+@synthesize data = _data;
 
+-(NSArray*) data {
+    
+    if(!_data){
+        _data = @[];
+    }
+    
+    return _data;
+}
+
+-(void) setData:(NSArray *)data {
+    _data = data;
+    
+//    for(NSUInteger i = 0; i < data.count; i++) {
+//        NSLog(@"%@",data[i]);
+//    }
+}
 
 
 - (void)viewDidLoad {
@@ -60,18 +79,48 @@
         
          if(!error){
              NSLog(@"%@",response);
-             NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
+             NSMutableDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
              for(NSString *key in responseData) {
-                 NSLog(@"%@",[responseData objectForKey:key]);
+                 if([key  isEqual: @"data"]){
+                     [self setData:[responseData objectForKey:key]];
+                 }
              }
+             
             }
           
          else{
              NSLog(@"%@",error);
             }
+        
+        self.albums = [[NSMutableDictionary alloc]init];
+        
+        for (id dict in self.data) {
+            NSMutableArray*imageLinks = [[NSMutableArray alloc]init];
+            NSArray *images = [dict objectForKey:@"images"];
+            
+            for(id imgDict in images){
+                [imageLinks addObject:[imgDict objectForKey:@"link"]];
+            }
+            
+            NSString *albumName = [dict objectForKey:@"title"];
+            [self.albums setObject:imageLinks forKey:albumName];
+            }
+        
+        for(NSString *key in _albums) {
+            NSLog(@"%@",[_albums objectForKey:key]);
+            }
         }
+                                      
     ];
     [dataTask resume];
+    
+}
+
+-(void) checkingData {
+    NSLog(@"Checking _data");
+    for(NSUInteger i = 0; i < _data.count; i++) {
+        NSLog(@"%@\n\n\n",_data[i]);
+    }
 }
 
 
