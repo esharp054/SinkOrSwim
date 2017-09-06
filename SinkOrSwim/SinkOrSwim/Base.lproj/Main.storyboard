@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yxc-ZQ-XnG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment version="4128" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,56 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1G-Ac-g3u">
+                                <rect key="frame" x="150" y="350" width="75" height="30"/>
+                                <state key="normal" title="Press Here"/>
+                                <connections>
+                                    <action selector="getGallery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kx2-F1-d4W"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="For the best memes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="auK-BX-pd9">
+                                <rect key="frame" x="121" y="325" width="133" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="A1G-Ac-g3u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0YI-iL-b3G"/>
+                            <constraint firstItem="auK-BX-pd9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="B4O-Rx-2XL"/>
+                            <constraint firstItem="A1G-Ac-g3u" firstAttribute="top" secondItem="auK-BX-pd9" secondAttribute="bottom" constant="8" id="BML-I0-kIt"/>
+                            <constraint firstItem="A1G-Ac-g3u" firstAttribute="centerX" secondItem="auK-BX-pd9" secondAttribute="centerX" id="cxs-da-N6B"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1VA-6k-geL"/>
+                    <connections>
+                        <outlet property="viewMain" destination="A1G-Ac-g3u" id="fa2-mq-aA2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1448.8" y="94.902548725637189"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="0NP-qd-FXz">
+            <objects>
+                <navigationController title="Main" automaticallyAdjustsScrollViewInsets="NO" id="Yxc-ZQ-XnG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kLw-Ya-l7c"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8NV-FK-dYh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZaK-bN-zG8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iku-MR-DKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="509.60000000000002" y="94.902548725637189"/>
         </scene>
     </scenes>
 </document>
