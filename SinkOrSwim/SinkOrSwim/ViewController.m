@@ -74,6 +74,11 @@
     self.scrollView.minimumZoomScale = 0.1;
     self.scrollView.delegate = self;
     
+    for(NSInteger i = 0; i < self.myImageModel.data.count; i++){
+        NSLog(@"Test");
+        NSLog(@"%@", self.myImageModel.data[i]);
+    }
+    
 }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -100,11 +105,11 @@
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
          if(!error){
-             NSLog(@"%@",response);
+//           NSLog(@"%@",response);
              NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
-//             [self.myImageModel setImgurPull:responseData];
+             [self.myImageModel setImgurPull:responseData];
              for(NSString *key in responseData) {
-                 NSLog(@"%@",[responseData objectForKey:key]);
+//                 NSLog(@"%@",[responseData objectForKey:key]);
              }
             }
           

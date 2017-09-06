@@ -9,6 +9,7 @@
 #import "TableViewController.h"
 #import "ImageModel.h"
 #import "ViewController.h"
+#import "GIFViewController.h"
 
 @interface TableViewController ()
 
@@ -34,19 +35,27 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.segmentedControl setTitle:@"All" forSegmentAtIndex:0];
+    [self.segmentedControl setTitle:@"Albums" forSegmentAtIndex:1];
+    [self.segmentedControl setTitle:@"Images" forSegmentAtIndex:2];
+    [self.segmentedControl setTitle:@"Animated" forSegmentAtIndex:3];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section
     if(section == 0){
         return self.myImageModel.imageNames.count;
+    }
+    else if(section == 1){
+        return 1;
     }
     else {
         return 1;
@@ -56,12 +65,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
-    
     if(indexPath.section == 0){
         cell = [tableView dequeueReusableCellWithIdentifier:@"ImageNameCell" forIndexPath:indexPath];
     
         // Configure the cell...
         cell.textLabel.text = self.myImageModel.imageNames[indexPath.row];
+        cell.detailTextLabel.text = @"More";
+    }
+    else if(indexPath.section == 1){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"AnimatedImageCell" forIndexPath:indexPath];
+        
+        // Configure the cell...
+        cell.textLabel.text = @"GIF";
         cell.detailTextLabel.text = @"More";
     }
     else {
@@ -83,6 +98,13 @@
     
         vc.imageName = cell.textLabel.text;
     }
+    
+//    BOOL isGVC = [[segue destinationViewController] isKindOfClass:[GIFViewController class]];
+//    
+//    if(isGVC){
+//        UITableViewCell* cell = (UITableViewCell*) sender;
+//        GIFViewController* gvc = [segue destinationViewController];
+//    }
     
 }
 

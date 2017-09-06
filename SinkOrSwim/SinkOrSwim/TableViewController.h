@@ -10,4 +10,6 @@
 
 @interface TableViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 @end
