@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ImageModel.h"
 
 @interface ViewController ()
 
@@ -17,13 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    ImageModel* myImageModel = [ImageModel sharedInstance];
+    
+    NSLog(@"%@", myImageModel.imageNames);
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
