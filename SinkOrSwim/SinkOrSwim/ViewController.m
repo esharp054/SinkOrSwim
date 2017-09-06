@@ -48,43 +48,30 @@
     // create a GET request and get the reponse back as NSData
     
     
-    NSURL *baseURL = [NSURL URLWithString:@"https://api.imgur.com/3/gallery/search/top/day/.3?q=cats"];
+    NSURL *baseURL = [NSURL URLWithString:@"https://api.imgur.com/3/gallery/search/top/year/.3?q=cat+memes"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:baseURL];
     
     [request setHTTPMethod:@"GET"];
     
     [request addValue:[NSString stringWithFormat:@"Client-ID %@", @"77b0c801d1a25b7"] forHTTPHeaderField:@"Authorization"];
-    
-    NSURLResponse *response = NULL;
-    NSError *error = NULL;
-    NSData *theResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSDictionary *dataDictionaryResponse = [NSJSONSerialization JSONObjectWithData:theResponseData options:0 error:&error];
-    NSLog(@"url to send request= %@",baseURL);
-    NSLog(@"%@",dataDictionaryResponse);
-    
-//    NSURL *getUrl = [NSURL URLWithString: baseURL];
-//    
-//    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:request.URL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        
-//         if(!error){
-//             NSLog(@"%@",response);
-//             NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
-//             //self.dsid = responseData[@"dsid"];
-//             //NSLog(@"New dataset id is %@",self.dsid);
-//             for(NSString *key in responseData) {
-//                 NSLog(@"%@",[responseData objectForKey:key]);
-//             }
-//                                                         
-//             //ispatch_async(dispatch_get_main_queue(), ^{self.dsidLabel.text = [NSString stringWithFormat:@"DSID: %ld",(long)[self.dsid integerValue]];);
-//            }
-//          
-//         else{
-//             NSLog(@"%@",error);
-//            }
-//        }
-//    ];
-//    [dataTask resume];
+ 
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+         if(!error){
+             NSLog(@"%@",response);
+             NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
+             for(NSString *key in responseData) {
+                 NSLog(@"%@",[responseData objectForKey:key]);
+             }
+            }
+          
+         else{
+             NSLog(@"%@",error);
+            }
+        }
+    ];
+    [dataTask resume];
 }
 
 
