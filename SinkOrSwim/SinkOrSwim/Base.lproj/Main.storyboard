@@ -88,13 +88,25 @@
                                     <segue destination="Z0a-Qb-PMv" kind="show" id="52W-0E-Sgb"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yDx-33-qyg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CollectionCell" textLabel="pxW-3G-dDe" style="IBUITableViewCellStyleDefault" id="yDx-33-qyg">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yDx-33-qyg" id="zOK-uy-tqN">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pxW-3G-dDe">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="75U-ZH-1R2" kind="show" id="5B8-j5-0Aj"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qqW-lq-Miw">
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
@@ -158,6 +170,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUP-KJ-47h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2264.8000000000002" y="802.848575712144"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="GED-dE-hfa">
+            <objects>
+                <collectionViewController id="75U-ZH-1R2" customClass="CollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="q8h-fs-hL2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bxa-F0-dot">
+                            <size key="itemSize" width="115" height="115"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectCell" id="pbb-wd-y37" customClass="CollectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-kH-ZGZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="bcQ-kH-ZGZ" secondAttribute="bottom" id="U64-5p-OgJ"/>
+                                    <constraint firstItem="bcQ-kH-ZGZ" firstAttribute="leading" secondItem="pbb-wd-y37" secondAttribute="leading" id="VKb-9i-bUH"/>
+                                    <constraint firstItem="bcQ-kH-ZGZ" firstAttribute="top" secondItem="pbb-wd-y37" secondAttribute="top" id="ZVF-eb-vQQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="bcQ-kH-ZGZ" secondAttribute="trailing" id="bD2-sV-Eu6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="bcQ-kH-ZGZ" id="RFj-lv-QTk"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="75U-ZH-1R2" id="wuw-rx-Ri2"/>
+                            <outlet property="delegate" destination="75U-ZH-1R2" id="TGf-76-8uG"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GT4-ek-lGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2268" y="1538.6806596701651"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BXA-bA-2Gq">

@@ -40,30 +40,50 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section
-    return self.myImageModel.imageNames.count;
+    if(section == 0){
+        return self.myImageModel.imageNames.count;
+    }
+    else {
+        return 1;
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageNameCell" forIndexPath:indexPath];
+    UITableViewCell *cell = nil;
     
-    // Configure the cell...
-    cell.textLabel.text = self.myImageModel.imageNames[indexPath.row];
-    cell.detailTextLabel.text = @"More";
+    if(indexPath.section == 0){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ImageNameCell" forIndexPath:indexPath];
+    
+        // Configure the cell...
+        cell.textLabel.text = self.myImageModel.imageNames[indexPath.row];
+        cell.detailTextLabel.text = @"More";
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CollectionCell" forIndexPath:indexPath];
+        
+        // Configure the cell...
+        cell.textLabel.text = @"Collection";
+    }
     
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UITableViewCell* cell = (UITableViewCell*) sender;
-    ViewController* vc = [segue destinationViewController];
+    BOOL isVC = [[segue destinationViewController] isKindOfClass:[ViewController class]];
     
-    vc.imageName = cell.textLabel.text;
+    if(isVC){
+        UITableViewCell* cell = (UITableViewCell*) sender;
+        ViewController* vc = [segue destinationViewController];
+    
+        vc.imageName = cell.textLabel.text;
+    }
+    
 }
 
 
