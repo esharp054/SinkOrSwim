@@ -9,11 +9,19 @@
 #import "ViewController.h"
 #import "ImageModel.h"
 
-@interface ViewController ()
+@interface ViewController () <NSURLSessionTaskDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *viewMain;
+@property (strong, nonatomic) NSURLSession *session;
+
+//client ID: 77b0c801d1a25b7
+//client secret: 997e2ccfb98ba9a02baebc9abdfd8f55de86c4b8
+
 
 @end
 
 @implementation ViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

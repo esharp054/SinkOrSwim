@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)getGallery:(id)sender;
 
 @end
 

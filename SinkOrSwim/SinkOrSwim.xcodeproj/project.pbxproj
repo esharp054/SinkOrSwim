@@ -431,6 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SinkOrSwim/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SMU.SinkOrSwim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SinkOrSwim/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SMU.SinkOrSwim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +515,7 @@
 				5239E4571F5E325500C0D59E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5239E4581F5E325500C0D59E /* Build configuration list for PBXNativeTarget "SinkOrSwimTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +524,7 @@
 				5239E45A1F5E325500C0D59E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5239E45B1F5E325500C0D59E /* Build configuration list for PBXNativeTarget "SinkOrSwimUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +533,7 @@
 				5239E45D1F5E325500C0D59E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
