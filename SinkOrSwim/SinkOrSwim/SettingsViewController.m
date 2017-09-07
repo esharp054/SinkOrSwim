@@ -18,11 +18,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *stepperLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @property (strong,nonatomic) ImageModel* myImageModel;
+@property (weak, nonatomic) IBOutlet UIPickerView *memeNamePicker;
 
 @end
 
 @implementation SettingsViewController
 @synthesize myImageModel = _myImageModel;
+@synthesize stepper = _stepper;
+
+
 
 -(ImageModel*) myImageModel{
     
@@ -34,6 +38,13 @@
 
 - (IBAction)makeVibrate:(id)sender {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+}
+
+- (IBAction)stepperValueChange:(id)sender {
+    
+    self.myImageModel.numImagesDisplayed = self.stepper.value;
+    
+    self.stepperLabel.text = [NSString stringWithFormat:@"Number of Memes: %ld", (long)self.myImageModel.numImagesDisplayed];
 }
 
 - (IBAction)changeNumberImages:(id)sender {
@@ -53,12 +64,14 @@
     
     self.sliderLabel.text = [NSString stringWithFormat:@"Current Value: %.2f", value.doubleValue];
 
-    self.stepperLabel.text = [NSString stringWithFormat:@"Current Number of Memes: %.2ld", (long)self.myImageModel.numImagesDisplayed];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.stepperLabel.text = [NSString stringWithFormat:@"Number of Memes: %ld", (long)self.myImageModel.numImagesDisplayed];
+    
+    self.stepper.value = self.myImageModel.numImagesDisplayed;
+    self.stepper.wraps = YES;
+    self.stepper.autorepeat = YES;
+    self.stepper.maximumValue = 15;
+    self.stepper.minimumValue = 1;
+    
 }
 
 /*
