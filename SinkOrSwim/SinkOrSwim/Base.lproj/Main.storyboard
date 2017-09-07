@@ -61,12 +61,12 @@
                         <viewControllerLayoutGuide type="top" id="OCx-D9-Srd"/>
                         <viewControllerLayoutGuide type="bottom" id="vN4-w3-PQj"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7RK-lD-H88">
+                    <view key="view" contentMode="scaleToFill" id="7RK-lD-H88" userLabel="stepperLabel">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WH2-pg-muL" userLabel="invertSwitch">
-                                <rect key="frame" x="273" y="107" width="51" height="31"/>
+                                <rect key="frame" x="273" y="107" width="51" height="24"/>
                                 <connections>
                                     <action selector="makeVibrate:" destination="kCM-Ba-svL" eventType="valueChanged" id="LBb-6I-Tv8"/>
                                 </connections>
@@ -77,14 +77,29 @@
                                     <action selector="changeNumberImages:" destination="kCM-Ba-svL" eventType="valueChanged" id="MiK-55-XA2"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kt-j3-GD1">
-                                <rect key="frame" x="16" y="207" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kt-j3-GD1">
+                                <rect key="frame" x="16" y="207" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Vxj-D9-ksI" userLabel="stepper">
+                                <rect key="frame" x="250" y="326" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperValueChange:" destination="kCM-Ba-svL" eventType="valueChanged" id="Lxn-H4-qQe"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBK-6b-sQA">
+                                <rect key="frame" x="16" y="330" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3E-Og-vPk">
+                                <rect key="frame" x="0.0" y="397" width="375" height="216"/>
+                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16T-X8-Mwx" userLabel="switchLabel">
-                                <rect key="frame" x="16" y="110" width="49" height="24"/>
+                                <rect key="frame" x="16" y="107" width="49" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -92,21 +107,35 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9kt-j3-GD1" firstAttribute="top" secondItem="16T-X8-Mwx" secondAttribute="bottom" constant="73" id="16R-KL-wuM"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="9kt-j3-GD1" secondAttribute="leading" id="78s-RI-qH5"/>
+                            <constraint firstItem="Vxj-D9-ksI" firstAttribute="top" secondItem="WH2-pg-muL" secondAttribute="bottom" constant="195" id="0E2-Ah-xn9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kL2-1E-JXT" secondAttribute="trailing" id="7yW-VA-6Ke"/>
+                            <constraint firstItem="v3E-Og-vPk" firstAttribute="top" secondItem="Vxj-D9-ksI" secondAttribute="bottom" constant="42" id="Bhl-2r-z0H"/>
+                            <constraint firstItem="v3E-Og-vPk" firstAttribute="leading" secondItem="7RK-lD-H88" secondAttribute="leading" id="JBp-zL-hdt"/>
+                            <constraint firstItem="vN4-w3-PQj" firstAttribute="top" secondItem="v3E-Og-vPk" secondAttribute="bottom" constant="54" id="Kw2-pT-RqZ"/>
+                            <constraint firstItem="QBK-6b-sQA" firstAttribute="top" secondItem="OCx-D9-Srd" secondAttribute="bottom" constant="266" id="RoI-cE-1i7"/>
                             <constraint firstItem="16T-X8-Mwx" firstAttribute="centerY" secondItem="WH2-pg-muL" secondAttribute="centerY" id="SHS-0Z-9fX"/>
                             <constraint firstItem="16T-X8-Mwx" firstAttribute="leading" secondItem="7RK-lD-H88" secondAttribute="leadingMargin" id="SmI-zz-D1C"/>
+                            <constraint firstItem="Vxj-D9-ksI" firstAttribute="centerY" secondItem="7RK-lD-H88" secondAttribute="centerY" constant="7" id="T7C-6w-TE9"/>
+                            <constraint firstItem="9kt-j3-GD1" firstAttribute="leading" secondItem="kL2-1E-JXT" secondAttribute="leading" id="VbI-Md-IU8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WH2-pg-muL" secondAttribute="trailing" constant="37" id="bvQ-4o-Jxr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vxj-D9-ksI" secondAttribute="trailing" constant="15" id="cls-ev-VIu"/>
+                            <constraint firstItem="vN4-w3-PQj" firstAttribute="top" secondItem="QBK-6b-sQA" secondAttribute="bottom" constant="316" id="dAy-gN-H4l"/>
                             <constraint firstItem="kL2-1E-JXT" firstAttribute="top" secondItem="OCx-D9-Srd" secondAttribute="bottom" constant="172" id="dcX-iS-T2z"/>
                             <constraint firstItem="WH2-pg-muL" firstAttribute="top" secondItem="OCx-D9-Srd" secondAttribute="bottom" constant="43" id="fzx-oF-D4H"/>
+                            <constraint firstItem="9kt-j3-GD1" firstAttribute="top" secondItem="16T-X8-Mwx" secondAttribute="bottom" constant="76" id="kNZ-JA-CQn"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kL2-1E-JXT" secondAttribute="leading" id="nAo-l9-g7n"/>
+                            <constraint firstItem="kL2-1E-JXT" firstAttribute="top" secondItem="9kt-j3-GD1" secondAttribute="bottom" constant="8" symbolic="YES" id="p4n-3F-Kra"/>
+                            <constraint firstAttribute="trailing" secondItem="v3E-Og-vPk" secondAttribute="trailing" id="v5o-3g-bWB"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="QBK-6b-sQA" secondAttribute="leading" id="wL3-fd-lNz"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="invertSwitch" destination="WH2-pg-muL" id="xHA-4M-tuG"/>
+                        <outlet property="memeNamePicker" destination="v3E-Og-vPk" id="IEc-eK-DUw"/>
                         <outlet property="slider" destination="kL2-1E-JXT" id="oa9-n3-VoU"/>
                         <outlet property="sliderLabel" destination="9kt-j3-GD1" id="ctF-qZ-pL8"/>
+                        <outlet property="stepper" destination="Vxj-D9-ksI" id="5tE-XC-G2F"/>
+                        <outlet property="stepperLabel" destination="QBK-6b-sQA" id="WSQ-Xd-kUr"/>
                         <outlet property="switchLabel" destination="16T-X8-Mwx" id="Baf-dY-Qgo"/>
                     </connections>
                 </viewController>
