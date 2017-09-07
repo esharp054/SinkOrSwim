@@ -1,14 +1,14 @@
 //
-//  GIFViewController.h
+//  ScrollViewController.h
 //  SinkOrSwim
 //
-//  Created by Elena Sharp on 9/6/17.
+//  Created by Elena Sharp on 9/7/17.
 //  Copyright © 2017 Elena Sharp. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface GIFViewController : UIViewController
+@interface ScrollViewController : UIViewController
 
 @property (nonatomic, assign) NSInteger imageIndex;
 

@@ -10,7 +10,8 @@
 
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) NSString* imageName;
+//@property (strong, nonatomic) NSString* imageName;
+@property (nonatomic, assign) NSInteger imageIndex;
 
 - (IBAction)getGallery:(id)sender;
 

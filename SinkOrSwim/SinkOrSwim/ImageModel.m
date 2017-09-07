@@ -9,9 +9,50 @@
 #import "ImageModel.h"
 #import "UIImage+animatedGIF.h"
 
+@interface ImageModel()
+
+@end
+
 @implementation ImageModel
 @synthesize imageNames = _imageNames;
 @synthesize numImagesDisplayed = _numImagesDisplayed;
+@synthesize albums = _albums;
+
+-(NSArray*) sortAlbumsForGIF {
+    NSLog(@"Sorting for gifs");
+    NSArray* final = nil;
+    NSMutableArray* gifs = [[NSMutableArray alloc] init];
+    for(NSString *key in self.albums) {
+        NSArray* temp = [[_albums objectForKey:key] mutableCopy];
+        for(NSInteger i = 0; i < temp.count; i ++){
+            if ([[temp[i] pathExtension] isEqualToString:@"gif"]){
+                NSLog(@"%@", temp[i]);
+                [gifs addObject:temp[i]];
+            }
+        }
+    }
+    
+    final = [gifs mutableCopy];
+    return final;
+}
+
+-(NSArray*) sortAlbumsForImages {
+    NSLog(@"Sorting for images");
+    NSArray* final = nil;
+    NSMutableArray* images = [[NSMutableArray alloc] init];
+    for(NSString *key in self.albums) {
+        NSArray* temp = [[_albums objectForKey:key] mutableCopy];
+        for(NSInteger i = 0; i < temp.count; i ++){
+            if (![[temp[i] pathExtension] isEqualToString:@"gif"]){
+                [images addObject:temp[i]];
+            }
+        }
+    }
+    
+    final = [images mutableCopy];
+    NSLog(@"%@", final);
+    return final;
+}
 
 -(NSInteger) numImagesDisplayed {
     
@@ -30,10 +71,28 @@
 -(NSArray*)imageNames {
     
     if(!_imageNames){
-        _imageNames = @[@"Eric1", @"Eric2", @"eric3"];
+        _imageNames = [self sortAlbumsForImages];
     }
     
     return _imageNames;
+}
+
+-(NSMutableDictionary*)albums {
+    
+    if(!_albums){
+        _albums = [[NSMutableDictionary alloc]init];
+    }
+    
+    return _albums;
+}
+
+-(NSArray*)GIFLinks {
+    
+    if(!_GIFLinks){
+        _GIFLinks = [self sortAlbumsForGIF];
+    }
+    
+    return _GIFLinks;
 }
 
 - (void)setImageNames:(NSArray *)imageNames{
@@ -54,20 +113,33 @@
     return _sharedInstance;
 }
 
--(UIImage*)getImageWithName:(NSString *)name{
+-(UIImage*)getImageWithIndex:(NSInteger)index{
     UIImage* image = nil;
     
-//    NSURL *imageURL = [NSURL URLWithString:@"http://example.com/demo.jpg"];
-//    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-//    image = [UIImage imageWithData:imageData];
+    NSURL *imageURL = [NSURL URLWithString:self.imageNames[index]];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    image = [UIImage imageWithData:imageData];
     
     
-    image = [UIImage imageNamed:name];
+//    image = [UIImage imageNamed:name];
     
     return image;
 }
 
--(UIImage*)getGIFWithName:(NSString *)name{
+//-(UIImage*)getGIFWithName:(NSString *)name{
+//    UIImage* image = nil;
+//    
+//    //    NSURL *imageURL = [NSURL URLWithString:@"http://example.com/demo.jpg"];
+//    //    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+//    //    image = [UIImage imageWithData:imageData];
+//
+//    
+//    image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:self.GIFLinks[0]]];
+//    
+//    return image;
+//}
+
+-(UIImage*)getGIFWithIndex:(NSInteger)index{
     UIImage* image = nil;
     
     //    NSURL *imageURL = [NSURL URLWithString:@"http://example.com/demo.jpg"];
@@ -75,7 +147,7 @@
     //    image = [UIImage imageWithData:imageData];
     
     
-    image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:@"https://i.imgur.com/3KdNzKU.gif"]];
+    image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:self.GIFLinks[index]]];
     
     return image;
 }

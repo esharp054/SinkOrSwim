@@ -9,6 +9,7 @@
 #import "TableViewController.h"
 #import "ImageModel.h"
 #import "ViewController.h"
+#import "ScrollViewController.h"
 #import "GIFViewController.h"
 
 @interface TableViewController ()
@@ -64,7 +65,7 @@
     // Return the number of rows in the section
     if(section == 0){
         if([self.segmentedControl selectedSegmentIndex] == 0 || [self.segmentedControl selectedSegmentIndex] == 2){
-        return self.myImageModel.imageNames.count;
+        return self.myImageModel.numImagesDisplayed;
         }
         else {
             return 0;
@@ -72,7 +73,7 @@
     }
     else if(section == 1){
         if([self.segmentedControl selectedSegmentIndex] == 0 || [self.segmentedControl selectedSegmentIndex] == 3){
-            return 1;
+            return self.myImageModel.GIFLinks.count;
         }
         else {
             return 0;
@@ -102,7 +103,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"AnimatedImageCell" forIndexPath:indexPath];
         
         // Configure the cell...
-        cell.textLabel.text = @"GIF";
+        cell.textLabel.text = self.myImageModel.GIFLinks[indexPath.row];
         cell.detailTextLabel.text = @"More";
     }
     else {
@@ -116,21 +117,25 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    BOOL isVC = [[segue destinationViewController] isKindOfClass:[ViewController class]];
+    BOOL isVC = [[segue destinationViewController] isKindOfClass:[ScrollViewController class]];
+    
     
     if(isVC){
-        UITableViewCell* cell = (UITableViewCell*) sender;
-        ViewController* vc = [segue destinationViewController];
-    
-        vc.imageName = cell.textLabel.text;
+        UITableViewCell* cell = (UITableViewCell*)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        ScrollViewController *vc = [segue destinationViewController];
+        
+        vc.imageIndex = indexPath.row;
     }
     
-//    BOOL isGVC = [[segue destinationViewController] isKindOfClass:[GIFViewController class]];
-//    
-//    if(isGVC){
-//        UITableViewCell* cell = (UITableViewCell*) sender;
-//        GIFViewController* gvc = [segue destinationViewController];
-//    }
+    BOOL isGVC = [[segue destinationViewController] isKindOfClass:[GIFViewController class]];
+    
+    if(isGVC){
+        UITableViewCell* cell = (UITableViewCell*) sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        GIFViewController* gvc = [segue destinationViewController];
+        gvc.imageIndex = indexPath.row;
+    }
     
 }
 

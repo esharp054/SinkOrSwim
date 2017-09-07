@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ImageModel.h"
 
-@interface ViewController () <NSURLSessionTaskDelegate, UIScrollViewDelegate>
+@interface ViewController () <NSURLSessionTaskDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *viewMain;
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSArray *data;
@@ -21,7 +21,7 @@
 
 @property (strong,nonatomic) ImageModel* myImageModel;
 @property (strong, nonatomic) UIImageView* imageView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+//@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -40,9 +40,6 @@
 
 -(void) setData:(NSArray *)data {
     _data = data;
-
-//    for(NSUInteger i = 0; i < data.count; i++) {
-//        NSLog(@"%@",data[i]);
 }
 
 -(ImageModel*) myImageModel{
@@ -53,21 +50,18 @@
     return _myImageModel;
 }
 
--(NSString*) imageName {
-
-    if(!_imageName){
-        _imageName = @"Eric1";
-    }
-
-    return _imageName;
+-(NSInteger)imageIndex{
+    
+    if(!_imageIndex)
+        _imageIndex = 0;
+    
+    return _imageIndex;
 }
 
--(UIImageView*) imageView{
-
-    if(!_imageView){
-        _imageView = [[UIImageView alloc] initWithImage: [[ImageModel sharedInstance] getImageWithName:self.imageName]];
-    }
-
+-(UIImageView*)imageView{
+    
+    if(!_imageView)
+        _imageView = [[UIImageView alloc] initWithImage:[[ImageModel sharedInstance] getImageWithIndex:self.imageIndex]];
     return _imageView;
 }
 
@@ -88,20 +82,7 @@
                                   delegate:self
                              delegateQueue:nil];
 
-    [self.scrollView addSubview:self.imageView];
-    self.scrollView.contentSize = self.imageView.image.size;
-    self.scrollView.minimumZoomScale = 0.1;
-    self.scrollView.delegate = self;
 
-    for(NSInteger i = 0; i < self.myImageModel.data.count; i++){
-        NSLog(@"Test");
-        NSLog(@"%@", self.myImageModel.data[i]);
-    }
-
-}
-
--(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.imageView;
 }
 
 -(IBAction)getGallery: (id) sender{
@@ -138,7 +119,7 @@
              NSLog(@"%@",error);
             }
 
-        self.albums = [[NSMutableDictionary alloc]init];
+        self.myImageModel.albums = [[NSMutableDictionary alloc]init];
 
         for (id dict in self.data) {
             NSMutableArray*imageLinks = [[NSMutableArray alloc]init];
@@ -149,24 +130,17 @@
             }
 
             NSString *albumName = [dict objectForKey:@"title"];
-            [self.albums setObject:imageLinks forKey:albumName];
+            [self.myImageModel.albums setObject:imageLinks forKey:albumName];
             }
 
-        for(NSString *key in _albums) {
-            NSLog(@"%@",[_albums objectForKey:key]);
+        for(NSString *key in self.myImageModel.albums) {
+            NSLog(@"%@",[self.myImageModel.albums objectForKey:key]);
             }
         }
 
     ];
     [dataTask resume];
 
-}
-
--(void) checkingData {
-    NSLog(@"Checking _data");
-    for(NSUInteger i = 0; i < _data.count; i++) {
-        NSLog(@"%@\n\n\n",_data[i]);
-    }
 }
 
 @end

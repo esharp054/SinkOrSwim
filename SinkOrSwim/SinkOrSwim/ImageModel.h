@@ -15,12 +15,16 @@
 @property(strong, nonatomic) NSDictionary * imgurPull;
 @property(strong, nonatomic) NSArray * data;
 @property(nonatomic) NSInteger numImagesDisplayed;
+@property (strong, nonatomic) NSMutableDictionary *albums;
+@property (strong, nonatomic)NSArray* GIFLinks;
 
 
 +(ImageModel*) sharedInstance;
 
--(UIImage*)getImageWithName:(NSString *)name;
+-(UIImage*)getImageWithIndex:(NSInteger)index;
 
--(UIImage*)getGIFWithName:(NSString *)name;
+//-(UIImage*)getGIFWithName:(NSString *)name;
+
+-(UIImage*)getGIFWithIndex:(NSInteger)index;
 
 @end

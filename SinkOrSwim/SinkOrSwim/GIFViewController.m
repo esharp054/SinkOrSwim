@@ -29,6 +29,14 @@
     return _myImageModel;
 }
 
+-(NSInteger)imageIndex{
+    
+    if(!_imageIndex)
+        _imageIndex = 0;
+    
+    return _imageIndex;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -67,7 +75,7 @@
 -(UIImageView*) animatedView{
     
     if(!_animatedView){
-        _animatedView = [[UIImageView alloc] initWithImage: [self.myImageModel getGIFWithName:@"Eir"]];
+        _animatedView = [[UIImageView alloc] initWithImage: [[ImageModel sharedInstance] getGIFWithIndex:self.imageIndex]];
     }
     
     return _animatedView;

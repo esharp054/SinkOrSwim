@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522FA8621F618E1A00F59880 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522FA8611F618E1A00F59880 /* ScrollViewController.m */; };
+		522FA8651F6192AC00F59880 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522FA8641F6192AC00F59880 /* TimerViewController.m */; };
 		5239E42D1F5E325500C0D59E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E42C1F5E325500C0D59E /* main.m */; };
 		5239E4301F5E325500C0D59E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E42F1F5E325500C0D59E /* AppDelegate.m */; };
 		5239E4331F5E325500C0D59E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E4321F5E325500C0D59E /* ViewController.m */; };
@@ -43,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		522FA8601F618E1A00F59880 /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
+		522FA8611F618E1A00F59880 /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
+		522FA8631F6192AC00F59880 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		522FA8641F6192AC00F59880 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		5239E4281F5E325500C0D59E /* SinkOrSwim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinkOrSwim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5239E42C1F5E325500C0D59E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5239E42E1F5E325500C0D59E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,9 +140,13 @@
 				5239E42F1F5E325500C0D59E /* AppDelegate.m */,
 				5239E4311F5E325500C0D59E /* ViewController.h */,
 				5239E4321F5E325500C0D59E /* ViewController.m */,
+				522FA8601F618E1A00F59880 /* ScrollViewController.h */,
+				522FA8611F618E1A00F59880 /* ScrollViewController.m */,
 				5264917A1F6091F20058542F /* GIFViewController.h */,
 				5264917B1F6091F20058542F /* GIFViewController.m */,
 				5239E4341F5E325500C0D59E /* Main.storyboard */,
+				522FA8631F6192AC00F59880 /* TimerViewController.h */,
+				522FA8641F6192AC00F59880 /* TimerViewController.m */,
 				5264917D1F60C4AB0058542F /* SettingsViewController.h */,
 				5264917E1F60C4AB0058542F /* SettingsViewController.m */,
 				5264916B1F60813D0058542F /* CollectionViewController.h */,
@@ -324,10 +334,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522FA8651F6192AC00F59880 /* TimerViewController.m in Sources */,
 				5239E4331F5E325500C0D59E /* ViewController.m in Sources */,
 				5264917C1F6091F20058542F /* GIFViewController.m in Sources */,
 				5239E4301F5E325500C0D59E /* AppDelegate.m in Sources */,
 				526491821F60DFB30058542F /* UIImage+animatedGIF.m in Sources */,
+				522FA8621F618E1A00F59880 /* ScrollViewController.m in Sources */,
 				5264916D1F60813D0058542F /* CollectionViewController.m in Sources */,
 				5239E42D1F5E325500C0D59E /* main.m in Sources */,
 				5264916A1F606A770058542F /* TableViewController.m in Sources */,
