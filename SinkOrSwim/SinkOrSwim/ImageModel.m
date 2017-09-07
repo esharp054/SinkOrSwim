@@ -75,7 +75,7 @@
     //    image = [UIImage imageWithData:imageData];
     
     
-    image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:@"https://media.giphy.com/media/3otPoRryBOP1km7xW8/giphy.gif"]];
+    image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:@"https://i.imgur.com/3KdNzKU.gif"]];
     
     return image;
 }
