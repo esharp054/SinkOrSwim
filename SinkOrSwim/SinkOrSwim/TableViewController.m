@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "ScrollViewController.h"
 #import "GIFViewController.h"
+#import "CollectionViewController.h"
 
 @interface TableViewController ()
 
@@ -81,7 +82,8 @@
     }
     else {
         if([self.segmentedControl selectedSegmentIndex] == 0 || [self.segmentedControl selectedSegmentIndex] == 1){
-            return 1;
+            return self.myImageModel.numImagesDisplayed;
+//            return 2;
         }
         else {
             return 0;
@@ -96,21 +98,25 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"ImageNameCell" forIndexPath:indexPath];
     
         // Configure the cell...
-        cell.textLabel.text = self.myImageModel.imageNames[indexPath.row];
+//        cell.textLabel.text = self.myImageModel.imageNames[indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"Kitty Meme #%ld", indexPath.row + 1];
         cell.detailTextLabel.text = @"More";
     }
     else if(indexPath.section == 1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"AnimatedImageCell" forIndexPath:indexPath];
         
         // Configure the cell...
-        cell.textLabel.text = self.myImageModel.GIFLinks[indexPath.row];
+//        cell.textLabel.text = self.myImageModel.GIFLinks[indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"Cat GIF #%ld", indexPath.row + 1];
         cell.detailTextLabel.text = @"More";
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CollectionCell" forIndexPath:indexPath];
         
         // Configure the cell...
-        cell.textLabel.text = @"Collection";
+//        cell.textLabel.text = @"Albums";
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"Cat Album #%ld", indexPath.row + 1];
     }
     
     return cell;
@@ -137,6 +143,14 @@
         gvc.imageIndex = indexPath.row;
     }
     
+    BOOL isCVC = [[segue destinationViewController] isKindOfClass:[CollectionViewController class]];
+    
+    if(isCVC){
+        UITableViewCell* cell = (UITableViewCell*) sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        CollectionViewController* cvc = [segue destinationViewController];
+        cvc.imageIndex = indexPath.row;
+    }
 }
 
 

@@ -26,6 +26,14 @@
     return _myImageModel;
 }
 
+-(NSInteger)imageIndex{
+    
+    if(!_imageIndex)
+        _imageIndex = 0;
+    
+    return _imageIndex;
+}
+
 static NSString * const reuseIdentifier = @"ImageCollectCell";
 
 - (void)viewDidLoad {
@@ -38,11 +46,6 @@ static NSString * const reuseIdentifier = @"ImageCollectCell";
 //    [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -63,7 +66,7 @@ static NSString * const reuseIdentifier = @"ImageCollectCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.myImageModel.imageNames.count;
+    return self.myImageModel.numImagesDisplayed;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,7 +74,7 @@ static NSString * const reuseIdentifier = @"ImageCollectCell";
     
     // Configure the cell
     cell.backgroundColor = [UIColor blueColor];
-    cell.imageView.image = [self.myImageModel getImageWithIndex:indexPath.row];
+    cell.imageView.image = [self.myImageModel getImageWithIndex:indexPath.item + self.imageIndex*self.myImageModel.numImagesDisplayed];
     
     return cell;
 }

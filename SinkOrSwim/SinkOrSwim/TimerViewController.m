@@ -56,8 +56,8 @@
     self.changeTextField = !self.changeTextField;
     self.timerCounter++;
     
-    if(self.timerCounter >= 6){
-        [self.t invalidate];
+    if(self.timerCounter >= 5){
+//        [self.t invalidate];
         [self.moveButton setTitle:@"Continue" forState:UIControlStateNormal];
     }
 }

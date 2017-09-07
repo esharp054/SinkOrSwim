@@ -10,4 +10,6 @@
 
 @interface CollectionViewController : UICollectionViewController
 
+@property (nonatomic, assign) NSInteger imageIndex;
+
 @end
