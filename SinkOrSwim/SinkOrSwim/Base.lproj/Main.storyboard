@@ -6,6 +6,7 @@
     <dependencies>
         <deployment version="4128" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -51,6 +52,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1448.8" y="94.902548725637189"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="3TW-tu-ZVL">
+            <objects>
+                <viewController id="kCM-Ba-svL" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OCx-D9-Srd"/>
+                        <viewControllerLayoutGuide type="bottom" id="vN4-w3-PQj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7RK-lD-H88">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WH2-pg-muL" userLabel="invertSwitch">
+                                <rect key="frame" x="273" y="107" width="51" height="31"/>
+                                <connections>
+                                    <action selector="makeVibrate:" destination="kCM-Ba-svL" eventType="valueChanged" id="LBb-6I-Tv8"/>
+                                </connections>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kL2-1E-JXT">
+                                <rect key="frame" x="14" y="236" width="347" height="31"/>
+                                <connections>
+                                    <action selector="changeNumberImages:" destination="kCM-Ba-svL" eventType="valueChanged" id="MiK-55-XA2"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kt-j3-GD1">
+                                <rect key="frame" x="16" y="207" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16T-X8-Mwx" userLabel="switchLabel">
+                                <rect key="frame" x="16" y="110" width="49" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9kt-j3-GD1" firstAttribute="top" secondItem="16T-X8-Mwx" secondAttribute="bottom" constant="73" id="16R-KL-wuM"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9kt-j3-GD1" secondAttribute="leading" id="78s-RI-qH5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kL2-1E-JXT" secondAttribute="trailing" id="7yW-VA-6Ke"/>
+                            <constraint firstItem="16T-X8-Mwx" firstAttribute="centerY" secondItem="WH2-pg-muL" secondAttribute="centerY" id="SHS-0Z-9fX"/>
+                            <constraint firstItem="16T-X8-Mwx" firstAttribute="leading" secondItem="7RK-lD-H88" secondAttribute="leadingMargin" id="SmI-zz-D1C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WH2-pg-muL" secondAttribute="trailing" constant="37" id="bvQ-4o-Jxr"/>
+                            <constraint firstItem="kL2-1E-JXT" firstAttribute="top" secondItem="OCx-D9-Srd" secondAttribute="bottom" constant="172" id="dcX-iS-T2z"/>
+                            <constraint firstItem="WH2-pg-muL" firstAttribute="top" secondItem="OCx-D9-Srd" secondAttribute="bottom" constant="43" id="fzx-oF-D4H"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="kL2-1E-JXT" secondAttribute="leading" id="nAo-l9-g7n"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="invertSwitch" destination="WH2-pg-muL" id="xHA-4M-tuG"/>
+                        <outlet property="slider" destination="kL2-1E-JXT" id="oa9-n3-VoU"/>
+                        <outlet property="sliderLabel" destination="9kt-j3-GD1" id="ctF-qZ-pL8"/>
+                        <outlet property="switchLabel" destination="16T-X8-Mwx" id="Baf-dY-Qgo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRa-bC-qRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256.8000000000002" y="106.59670164917542"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="L2n-f3-9e0">
@@ -144,7 +206,7 @@
                     <navigationItem key="navigationItem" id="qlu-re-6WB">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="lfb-1B-HK5">
-                            <rect key="frame" x="48.5" y="7" width="278" height="30"/>
+                            <rect key="frame" x="39" y="7" width="278" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             <segments>
@@ -153,7 +215,15 @@
                                 <segment title=""/>
                                 <segment title=""/>
                             </segments>
+                            <connections>
+                                <action selector="segButtonTapped:" destination="X6z-hi-ttB" eventType="valueChanged" id="K38-om-STP"/>
+                            </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" image="settings" width="10" id="BrG-3s-LU0" userLabel="settingButton">
+                            <connections>
+                                <segue destination="kCM-Ba-svL" kind="show" id="KiX-cD-TZn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segmentedControl" destination="lfb-1B-HK5" id="wfc-uV-BHF"/>
@@ -308,4 +378,7 @@
             <point key="canvasLocation" x="509.60000000000002" y="94.902548725637189"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="25" height="25"/>
+    </resources>
 </document>

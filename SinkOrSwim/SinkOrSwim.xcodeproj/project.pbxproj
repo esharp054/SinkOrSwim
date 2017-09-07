@@ -19,10 +19,10 @@
 		5264916A1F606A770058542F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526491691F606A770058542F /* TableViewController.m */; };
 		5264916D1F60813D0058542F /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264916C1F60813D0058542F /* CollectionViewController.m */; };
 		526491701F60835D0058542F /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264916F1F60835D0058542F /* CollectionViewCell.m */; };
-		526491731F6085C20058542F /* SegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 526491721F6085C20058542F /* SegmentedControl.m */; };
 		526491761F608F970058542F /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 526491751F608F970058542F /* UIImage+animatedGIF.m */; };
 		526491791F60900E0058542F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526491781F60900E0058542F /* ImageIO.framework */; };
 		5264917C1F6091F20058542F /* GIFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264917B1F6091F20058542F /* GIFViewController.m */; };
+		5264917F1F60C4AB0058542F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264917E1F60C4AB0058542F /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,13 +67,13 @@
 		5264916C1F60813D0058542F /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		5264916E1F60835D0058542F /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		5264916F1F60835D0058542F /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
-		526491711F6085C20058542F /* SegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedControl.h; sourceTree = "<group>"; };
-		526491721F6085C20058542F /* SegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedControl.m; sourceTree = "<group>"; };
 		526491741F608F970058542F /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+animatedGIF.h"; path = "../../../../Downloads/uiimage-from-animated-gif-master/uiimage-from-animated-gif/UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		526491751F608F970058542F /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+animatedGIF.m"; path = "../../../../Downloads/uiimage-from-animated-gif-master/uiimage-from-animated-gif/UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		526491781F60900E0058542F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5264917A1F6091F20058542F /* GIFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFViewController.h; sourceTree = "<group>"; };
 		5264917B1F6091F20058542F /* GIFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIFViewController.m; sourceTree = "<group>"; };
+		5264917D1F60C4AB0058542F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5264917E1F60C4AB0058542F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,8 +135,8 @@
 				5264917A1F6091F20058542F /* GIFViewController.h */,
 				5264917B1F6091F20058542F /* GIFViewController.m */,
 				5239E4341F5E325500C0D59E /* Main.storyboard */,
-				526491711F6085C20058542F /* SegmentedControl.h */,
-				526491721F6085C20058542F /* SegmentedControl.m */,
+				5264917D1F60C4AB0058542F /* SettingsViewController.h */,
+				5264917E1F60C4AB0058542F /* SettingsViewController.m */,
 				5264916B1F60813D0058542F /* CollectionViewController.h */,
 				5264916C1F60813D0058542F /* CollectionViewController.m */,
 				5264916E1F60835D0058542F /* CollectionViewCell.h */,
@@ -324,11 +324,11 @@
 				5239E4331F5E325500C0D59E /* ViewController.m in Sources */,
 				5264917C1F6091F20058542F /* GIFViewController.m in Sources */,
 				5239E4301F5E325500C0D59E /* AppDelegate.m in Sources */,
-				526491731F6085C20058542F /* SegmentedControl.m in Sources */,
 				5264916D1F60813D0058542F /* CollectionViewController.m in Sources */,
 				526491761F608F970058542F /* UIImage+animatedGIF.m in Sources */,
 				5239E42D1F5E325500C0D59E /* main.m in Sources */,
 				5264916A1F606A770058542F /* TableViewController.m in Sources */,
+				5264917F1F60C4AB0058542F /* SettingsViewController.m in Sources */,
 				526491701F60835D0058542F /* CollectionViewCell.m in Sources */,
 				5239E4601F5E441900C0D59E /* ImageModel.m in Sources */,
 			);

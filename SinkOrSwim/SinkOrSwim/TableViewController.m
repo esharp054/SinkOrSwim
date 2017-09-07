@@ -26,6 +26,16 @@
     }
     return _myImageModel;
 }
+- (IBAction)segButtonTapped:(id)sender {
+    
+    [self.tableView reloadData];
+    
+}
+
+- (IBAction)segBtnTapped:(id)sender {
+    
+    [self.tableView reloadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +50,7 @@
     [self.segmentedControl setTitle:@"Albums" forSegmentAtIndex:1];
     [self.segmentedControl setTitle:@"Images" forSegmentAtIndex:2];
     [self.segmentedControl setTitle:@"Animated" forSegmentAtIndex:3];
+    
 }
 
 #pragma mark - Table view data source
@@ -52,13 +63,28 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section
     if(section == 0){
+        if([self.segmentedControl selectedSegmentIndex] == 0 || [self.segmentedControl selectedSegmentIndex] == 2){
         return self.myImageModel.imageNames.count;
+        }
+        else {
+            return 0;
+        }
     }
     else if(section == 1){
-        return 1;
+        if([self.segmentedControl selectedSegmentIndex] == 0 || [self.segmentedControl selectedSegmentIndex] == 3){
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
     else {
-        return 1;
+        if([self.segmentedControl selectedSegmentIndex] == 0 || [self.segmentedControl selectedSegmentIndex] == 1){
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 }
 
