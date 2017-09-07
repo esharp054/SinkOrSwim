@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioServices.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *memeNamePicker;
+
 
 @end
