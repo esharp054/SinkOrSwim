@@ -7,24 +7,30 @@
 //
 
 #import "SettingsViewController.h"
+#import "ImageModel.h"
 
 @interface SettingsViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *switchLabel;
-
 @property (weak, nonatomic) IBOutlet UISwitch *invertSwitch;
-
 @property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
-
 @property (weak, nonatomic) IBOutlet UISlider *slider;
-
 @property (weak, nonatomic) IBOutlet UILabel *stepperLabel;
-
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
+@property (strong,nonatomic) ImageModel* myImageModel;
 
 @end
 
 @implementation SettingsViewController
+@synthesize myImageModel = _myImageModel;
+
+-(ImageModel*) myImageModel{
+    
+    if(!_myImageModel){
+        _myImageModel = [ImageModel sharedInstance];
+    }
+    return _myImageModel;
+}
 
 - (IBAction)makeVibrate:(id)sender {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
@@ -47,7 +53,7 @@
     
     self.sliderLabel.text = [NSString stringWithFormat:@"Current Value: %.2f", value.doubleValue];
 
-    self.stepperLabel.text = [NSString stringWithFormat@"Current Number of Memes: %.2d", ];
+    self.stepperLabel.text = [NSString stringWithFormat:@"Current Number of Memes: %.2ld", (long)self.myImageModel.numImagesDisplayed];
 }
 
 - (void)didReceiveMemoryWarning {
