@@ -11,8 +11,21 @@
 
 @implementation ImageModel
 @synthesize imageNames = _imageNames;
-@synthesize imgurPull = _imgurPull;
-@synthesize data = _data;
+@synthesize numImagesDisplayed = _numImagesDisplayed;
+
+-(NSInteger) numImagesDisplayed {
+    
+    if(!_numImagesDisplayed){
+        _numImagesDisplayed = 5;
+    }
+    
+    return _numImagesDisplayed;
+}
+
+- (void)setNumImagesDisplayed:(NSInteger)numImagesDisplayed{
+    _numImagesDisplayed = numImagesDisplayed;
+
+}
 
 -(NSArray*)imageNames {
     
@@ -23,38 +36,9 @@
     return _imageNames;
 }
 
--(NSArray*)data {
-    
-    if(!_data){
-        _data = [self.imgurPull objectForKey:@"data"];
-    }
-    
-    return _data;
-}
-
 - (void)setImageNames:(NSArray *)imageNames{
-    imageNames = imageNames;
+    _imageNames = imageNames;
 
-    // do some more stuff
-}
-
--(NSDictionary*)imgurPull {
-    
-    //Lazy Instantiation
-    if(!_imgurPull){
-        _imgurPull = @{};
-    }
-    
-    return _imgurPull;
-}
-
-- (void)setImgurPull:(NSDictionary *)imgurPull{
-    _imgurPull = imgurPull;
-//    for(NSString *key in _imgurPull) {
-//        NSLog(@"%@",key);
-////        NSLog(@"%@",[_imgurPull objectForKey:key]);
-//    }
-    
     // do some more stuff
 }
 

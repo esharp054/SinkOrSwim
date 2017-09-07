@@ -10,7 +10,7 @@
 		5239E42D1F5E325500C0D59E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E42C1F5E325500C0D59E /* main.m */; };
 		5239E4301F5E325500C0D59E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E42F1F5E325500C0D59E /* AppDelegate.m */; };
 		5239E4331F5E325500C0D59E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E4321F5E325500C0D59E /* ViewController.m */; };
-		5239E4361F5E325500C0D59E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5239E4341F5E325500C0D59E /* Main.storyboard */; };
+		5239E4361F5E325500C0D59E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5239E4341F5E325500C0D59E /* Main.storyboard */; settings = {ASSET_TAGS = ("Stepper Label", ); }; };
 		5239E4381F5E325500C0D59E /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5239E4371F5E325500C0D59E /* images.xcassets */; };
 		5239E43B1F5E325500C0D59E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5239E4391F5E325500C0D59E /* LaunchScreen.storyboard */; };
 		5239E4461F5E325500C0D59E /* SinkOrSwimTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E4451F5E325500C0D59E /* SinkOrSwimTests.m */; };
@@ -249,6 +249,9 @@
 		5239E4201F5E325400C0D59E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					"Stepper Label",
+				);
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Elena Sharp";
 				TargetAttributes = {

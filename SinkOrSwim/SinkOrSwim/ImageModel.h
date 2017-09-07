@@ -14,6 +14,7 @@
 @property(strong, nonatomic) NSArray * imageNames;
 @property(strong, nonatomic) NSDictionary * imgurPull;
 @property(strong, nonatomic) NSArray * data;
+@property(nonatomic) NSInteger numImagesDisplayed;
 
 
 +(ImageModel*) sharedInstance;

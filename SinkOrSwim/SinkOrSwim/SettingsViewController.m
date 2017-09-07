@@ -18,6 +18,10 @@
 
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 
+@property (weak, nonatomic) IBOutlet UILabel *stepperLabel;
+
+@property (weak, nonatomic) IBOutlet UIStepper *stepper;
+
 @end
 
 @implementation SettingsViewController
@@ -28,9 +32,9 @@
 
 - (IBAction)changeNumberImages:(id)sender {
     
-    NSInteger value = self.slider.value * 10;
+    NSNumber* value =  [NSNumber numberWithFloat:self.slider.value];
     
-    self.sliderLabel.text = [NSString stringWithFormat:@"Current Number of Images: %ld", value];
+    self.sliderLabel.text = [NSString stringWithFormat:@"Current Value: %.2f", value.doubleValue];
     
 }
 
@@ -39,7 +43,11 @@
     // Do any additional setup after loading the view.
     self.switchLabel.text = @"For Interactive Fun";
     
-    self.sliderLabel.text = @"Adjust Number of Images Using Slider";
+    NSNumber* value =  [NSNumber numberWithFloat:self.slider.value];
+    
+    self.sliderLabel.text = [NSString stringWithFormat:@"Current Value: %.2f", value.doubleValue];
+
+    self.stepperLabel.text = [NSString stringWithFormat@"Current Number of Memes: %.2d", ];
 }
 
 - (void)didReceiveMemoryWarning {
