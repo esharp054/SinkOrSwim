@@ -55,6 +55,10 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -82,7 +86,7 @@
     }
     else {
         if([self.segmentedControl selectedSegmentIndex] == 0 || [self.segmentedControl selectedSegmentIndex] == 1){
-            return self.myImageModel.numImagesDisplayed;
+            return 5;
 //            return 2;
         }
         else {

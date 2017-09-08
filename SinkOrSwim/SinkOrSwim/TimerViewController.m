@@ -10,11 +10,12 @@
 
 @interface TimerViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *textLabel;
+//@property (weak, nonatomic) IBOutlet UITextField *textLabel;
 @property (nonatomic) BOOL changeTextField;
 @property (nonatomic) NSInteger timerCounter;
 @property (strong, nonatomic) NSTimer *t;
 @property (weak, nonatomic) IBOutlet UIButton *moveButton;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 
