@@ -9,7 +9,9 @@
 #import "SettingsViewController.h"
 #import "ImageModel.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController (){
+    NSArray *_pickerData;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *switchLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *invertSwitch;
@@ -18,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *stepperLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @property (strong,nonatomic) ImageModel* myImageModel;
-@property (weak, nonatomic) IBOutlet UIPickerView *memeNamePicker;
+@property (weak, nonatomic) IBOutlet UILabel *pickerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emojiResponse;
 
 @end
 
@@ -59,6 +62,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.switchLabel.text = @"For Interactive Fun";
+    self.pickerLabel.text = @"Rate your meme experience!";
+    self.emojiResponse.text = @"😱";
     
     NSNumber* value =  [NSNumber numberWithFloat:self.slider.value];
     
@@ -72,6 +77,52 @@
     self.stepper.maximumValue = 15;
     self.stepper.minimumValue = 1;
     
+    _pickerData = @[@"Poor", @"Fair", @"Good",@"Great",@"MemeTastic!"];
+    self.memeNamePicker.dataSource = self;
+    self.memeNamePicker.delegate = self;
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _pickerData.count;
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+
+    return _pickerData[row];
+}
+
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    if([_pickerData[row] isEqualToString:@"Poor"]){
+        self.emojiResponse.text = @"😱";
+    }
+    else if([_pickerData[row] isEqualToString:@"Fair"]){
+        self.emojiResponse.text = @"☺️";
+    }
+    else if([_pickerData[row] isEqualToString:@"Good"]){
+        self.emojiResponse.text = @"🙂";
+    }
+    else if([_pickerData[row] isEqualToString:@"Great"]){
+        self.emojiResponse.text = @"😀";
+    }
+    else if([_pickerData[row] isEqualToString:@"MemeTastic!"]){
+        self.emojiResponse.text = @"😄";
+    }
 }
 
 /*
